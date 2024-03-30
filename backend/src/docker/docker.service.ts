@@ -89,7 +89,7 @@ export class DockerService {
 
   async createCodeInstance(container: CreateContainer) {
     return new Promise((resolve, reject) => {
-      exec(`./src/docker/utils/port ${container.name} ${container.package} $HOME/${container.filepath}`, (error, stdout, stderr) => {
+      exec(`./src/docker/utils/port ${container.name.toLowerCase()} ${container.package} $HOME/${container.filepath}`, (error, stdout, stderr) => {
         if (error) {
           console.error(`Error executing the script: ${error}`);
           reject(error);
