@@ -55,7 +55,7 @@ export class DockerController {
     return await this.dockerService.createCodeInstance(createContainerDto);
   }
 
-  @Post('container/start/:id')
+  @Get('container/start/:id')
   async startContainer(@Param('id') id: string) {
     return await this.dockerService.startContainer(id);
   }

@@ -56,8 +56,24 @@ export class DockerService {
   }
 
   async startContainer(id: string) {
-    const container = this.docker.getContainer(id);
-    return await container.start();
+    const container = await this.getInfo(id);
+    return new Promise((resolve, reject) => {
+      exec(`./src/docker/utils/start ${container.Name.toLowerCase()}`, (error, stdout, stderr) => {
+        if (error) {
+          console.error(`Error executing the script: ${error}`);
+          reject(error);
+          return;
+        }
+
+        const outputLines = stdout.trim().split('\n');
+
+        const containerId = outputLines[outputLines.length - 1];
+
+        console.log(`Container created with ID: ${containerId}`);
+
+        resolve(containerId.slice(0, 10));
+      });
+    }) 
   }
 
   async containerURL() {

@@ -247,7 +247,7 @@ const ImageNavbar = ({ imageName }) => {
                         <button onClick={() => { handleStop(id[index], index) }} className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full m-2 disabled:opacity-50" disabled={!isStarted[index]}>Stop</button>
                         <button onClick={() => { handleDelete(id[index]) }} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full m-2">Delete</button>
                         <div className=" m-2 rounded-full bg-blue-400">
-                            <a href={url} target="_blank" onClick={() => {handlePort(id[index])}}>
+                            <a href={url} target="_blank" onLoad={() => {handlePort(id[index])}}>
                                 <Image className="rounded-full p-2"
                                     src={redirect}
                                     width={40}

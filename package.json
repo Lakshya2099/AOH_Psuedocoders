@@ -4,8 +4,8 @@
     "description": "This project is a comprehensive solution for monitoring Docker containers. It displays running Docker containers and their stats and logs on a user-friendly frontend interface.",
     "main": "index.js",
     "scripts": {
-      "install:frontend": "cd frontend && npm install && cd..",
-      "install:backend": "cd backend && npm install && cd..",
+      "install:frontend": "cd frontend && npm install",
+      "install:backend": "cd backend && npm install",
       "start:frontend": "cd frontend && npm run dev",
       "start:backend": "cd backend && npm run start:dev"
     },
